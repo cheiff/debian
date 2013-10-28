@@ -1,6 +1,6 @@
 #!/bin/bash
-if [ $# != 2 ];then
-  echo "Syntax: install name email"
+if [ $# != 3 ];then
+  echo "Syntax: install name email repo"
   exit
 fi
 cd /root/
@@ -14,7 +14,7 @@ hostname
 git clone git://github.com/cheiff/rc
 rc/install.sh
 git clone git://github.com/cheiff/scripts
-cat "PATH=\$PATH:/root/scripts/run">>.bashrc
+echo "PATH=\$PATH:/root/scripts/run">>.bashrc
 mkdir -p .ssh
 chmod 700 .ssh
 cat >.ssh/config<<EOF
@@ -30,5 +30,7 @@ eval `ssh-agent` && ssh-add ~/.ssh/id_dsa
 echo "Add this key to gitosis"
 cat .ssh/id_dsa.pub
 read CONTINUE
+git clone $3 -b debian
 tmux
+
 
