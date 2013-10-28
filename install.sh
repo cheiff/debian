@@ -1,6 +1,6 @@
 #!/bin/bash
-if [ $# != 4 ];then
-  echo "Syntax: install name email repo saltmasterIP"
+if [ $# != 5 ];then
+  echo "Syntax: install name email repo saltmasterIP hostname"
   exit
 fi
 cd /root/
@@ -8,9 +8,7 @@ dpkg-reconfigure locales
 dpkg-reconfigure tzdata
 apt-get update
 apt-get install vim -y
-hostname
-hostname $(hostname -f)
-hostname
+hostname ${6}
 git clone git://github.com/cheiff/rc
 rc/install.sh
 git clone git://github.com/cheiff/scripts
