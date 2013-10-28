@@ -1,6 +1,6 @@
 #!/bin/bash
-if [ $# != 3 ];then
-  echo "Syntax: install name email repo saltmasterip"
+if [ $# != 4 ];then
+  echo "Syntax: install name email repo saltmasterIP"
   exit
 fi
 cd /root/
