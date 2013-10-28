@@ -1,6 +1,6 @@
 #!/bin/bash
 if [ $# != 3 ];then
-  echo "Syntax: install name email repo"
+  echo "Syntax: install name email repo saltmasterip"
   exit
 fi
 cd /root/
@@ -15,6 +15,7 @@ git clone git://github.com/cheiff/rc
 rc/install.sh
 git clone git://github.com/cheiff/scripts
 echo "PATH=\$PATH:/root/scripts/run">>.bashrc
+echo "$4 saltmaster">>/etc/hosts
 mkdir -p .ssh
 chmod 700 .ssh
 cat >.ssh/config<<EOF
