@@ -1,6 +1,6 @@
 #!/bin/bash
 if [ $# != 5 ];then
-  echo "Syntax: install name email repo saltmasterIP hostname"
+  echo "Syntax: install name repo saltmasterIP hostname"
   exit
 fi
 cd /root/
@@ -21,7 +21,7 @@ ControlMaster auto
 ControlPath /tmp/ssh_mux_%h_%p_%r
 EOF
 git config --global user.name "$1"
-git config --global user.email "$2"
+git config --global user.email "root@$6"
 
 
 ssh-keygen -t dsa
