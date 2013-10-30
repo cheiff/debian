@@ -4,10 +4,8 @@ if [ $# != 5 ];then
   exit
 fi
 cd /root/
-dpkg-reconfigure locales
 dpkg-reconfigure tzdata
 apt-get update
-apt-get install vim -y
 hostname ${6}
 git clone git://github.com/cheiff/rc
 rc/install.sh
