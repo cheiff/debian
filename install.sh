@@ -27,6 +27,7 @@ eval `ssh-agent` && ssh-add ~/.ssh/id_dsa
 echo "Add this key to gitosis"
 cat .ssh/id_dsa.pub
 read CONTINUE
+sed -i 's/xAAA/$1/g' /etc/hosts
 git clone $2 -b debian
 tmux
 
